@@ -7,7 +7,9 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.enableCors({
-    origin: 'http://localhost:3000',
+    origin: [
+      'http://localhost:3000',
+    ],
   });
 
   app.useGlobalPipes(
@@ -18,9 +20,11 @@ async function bootstrap() {
     }),
   );
 
-  await app.listen(4000);
+  const port = process.env.PORT || 4000;
 
-  console.log('TaskFlow Pro API running on http://localhost:4000');
+  await app.listen(port);
+
+  console.log(`TaskFlow Pro API running on port ${port}`);
 }
 
 bootstrap();
