@@ -23,7 +23,11 @@ type VisibleFields = {
   actions: boolean;
 };
 
-const API_URL = 'http://localhost:4000/tasks';
+const API_BASE_URL =
+  process.env.NEXT_PUBLIC_API_URL ||
+  'http://localhost:4000';
+
+const API_URL = `${API_BASE_URL}/tasks`;
 
 /* =========================================================
    TASK SECTION
