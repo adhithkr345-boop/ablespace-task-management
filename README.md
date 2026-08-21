@@ -2,15 +2,18 @@
 
 A responsive full-stack task management application developed as part of the **Full Stack Developer (Fresher) Technical Assessment**.
 
-The application was implemented based on the provided Figma design, with a focus on visual accuracy, responsive behavior, reusable components, task management functionality, theme support, guest access, and a structured backend API.
+The application was implemented based on the provided Figma design, with a focus on visual accuracy, responsive behavior, reusable components, task management functionality, theme support, guest access, validation, and a structured backend API.
 
 ---
 
 ## 🔗 Project Links
 
-* **Live Demo:** [AbleSpace Live Demo](https://ablespace-task-management-orcin.vercel.app/)
-* **GitHub Repository:** [AbleSpace GitHub Repository](https://github.com/adhithkr345-boop/ablespace-task-management.git)
-* **Part 2 Product Understanding:** [View Part 2 Submission](./docs/AbleSpace_Part_2_Product_Understanding_Final_Submission.pdf)
+- **Live Demo / Guest Login:** [Open AbleSpace Guest Login](https://ablespace-task-management-orcin.vercel.app/login)
+- **Dashboard:** [Open AbleSpace Dashboard](https://ablespace-task-management-orcin.vercel.app/)
+- **GitHub Repository:** [View GitHub Repository](https://github.com/adhithkr345-boop/ablespace-task-management)
+- **Backend API:** [Open Backend API](https://ablespace-task-manageme.onrender.com)
+- **Tasks API:** [Open Tasks API](https://ablespace-task-manageme.onrender.com/tasks)
+- **Part 2 Product Understanding:** [View Part 2 Submission](https://github.com/adhithkr345-boop/ablespace-task-management/blob/main/docs/AbleSpace_Part_2_Product_Understanding_Final_Submission.pdf)
 
 ---
 
@@ -20,15 +23,15 @@ This project was completed for the **Full Stack Developer (Fresher) – Technica
 
 The assessment required:
 
-* Building a Task Management System based on a provided Figma design
-* Implementing theme support with persistence
-* Guest login
-* Reusable frontend components
-* Clean backend APIs
-* Validation
-* Responsive design
-* Product understanding of the AbleSpace Caseload → Take Data workflow
-* UX/UI and functionality improvement recommendations
+- Building a Task Management System based on a provided Figma design
+- Implementing theme support with persistence
+- Guest login
+- Reusable frontend components
+- Clean backend APIs
+- Request validation
+- Responsive design
+- Product understanding of the AbleSpace Caseload → Take Data workflow
+- UX/UI and functionality improvement recommendations
 
 ---
 
@@ -38,15 +41,15 @@ The assessment required:
 
 The application provides a task-management workspace where users can:
 
-* View tasks grouped by status
-* Create new tasks
-* Start tasks
-* Complete tasks
-* Delete tasks
-* View task priority
-* View assigned members
-* View task due dates
-* Organize work across projects
+- View tasks grouped by status
+- Create new tasks
+- Start tasks
+- Complete tasks
+- Delete tasks
+- View task priority
+- View assigned members
+- View task due dates
+- Organize work across projects
 
 The main Tasks interface displays task groups such as **To Do** and **Doing**, with task information and available actions.
 
@@ -54,9 +57,9 @@ The main Tasks interface displays task groups such as **To Do** and **Doing**, w
 
 The task workspace includes controls for:
 
-* Searching tasks
-* Selecting displayed fields
-* Filtering task information
+- Searching tasks
+- Selecting displayed fields
+- Filtering task information
 
 These controls help users find and manage tasks more efficiently.
 
@@ -68,6 +71,8 @@ A Projects section is provided through the main workspace navigation, allowing t
 
 The application supports a guest-account experience for accessing the task-management workspace.
 
+Users can access the Guest Login page and enter the task-management dashboard.
+
 ## 🌙 Theme Support
 
 The interface includes theme switching.
@@ -78,9 +83,9 @@ The selected theme is persisted across page refreshes so the user's preference i
 
 The application is designed to provide a usable experience across:
 
-* Desktop
-* Tablet
-* Mobile
+- Desktop
+- Tablet
+- Mobile
 
 The layout adapts to different viewport sizes while maintaining access to the primary task-management functionality.
 
@@ -92,25 +97,25 @@ The frontend is organized using reusable components to avoid unnecessary duplica
 
 # 🛠️ Tech Stack
 
-### Frontend
+## Frontend
 
-* Next.js
-* React
-* TypeScript
-* Tailwind CSS
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
 
-### Backend
+## Backend
 
-* NestJS
-* TypeScript
-* REST APIs
-* Request validation
+- NestJS
+- TypeScript
+- REST APIs
+- TypeORM
+- Request validation
 
-### Database
+## Database
 
-* Database configured in the backend implementation
-
-> The exact database technology and configuration are defined by the backend implementation.
+- SQLite
+- TypeORM
 
 ---
 
@@ -121,11 +126,20 @@ AbleSpace/
 │
 ├── backend/
 │   ├── src/
+│   │   ├── tasks/
+│   │   ├── app.controller.ts
+│   │   ├── app.module.ts
+│   │   ├── app.service.ts
+│   │   └── main.ts
 │   └── package.json
 │
 ├── frontend/
 │   ├── app/
-│   ├── components/
+│   │   ├── components/
+│   │   ├── login/
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   └── page.tsx
 │   └── package.json
 │
 ├── docs/
@@ -133,144 +147,126 @@ AbleSpace/
 │
 ├── .gitignore
 └── README.md
-```
-
----
-
-# 🚀 Getting Started
-
-## Prerequisites
+🚀 Getting Started
+Prerequisites
 
 Make sure you have the following installed:
 
-* Node.js
-* npm
-* Git
-* The database required by the backend
+Node.js
+npm
+Git
+1. Clone the Repository
+git clone https://github.com/adhithkr345-boop/ablespace-task-management.git
+cd ablespace-task-management
+2. Install Frontend Dependencies
 
-## 1. Clone the repository
+From the project root:
 
-```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
-cd AbleSpace
-```
-
-## 2. Install frontend dependencies
-
-```bash
 cd frontend
 npm install
-```
+3. Install Backend Dependencies
 
-## 3. Install backend dependencies
+Open another terminal from the project root:
 
-Open another terminal and run:
-
-```bash
 cd backend
 npm install
-```
+4. Configure Environment Variables
 
-## 4. Configure environment variables
+For local frontend development, create:
 
-Create the required environment files for the backend and frontend.
+frontend/.env.local
+
+Add:
+
+NEXT_PUBLIC_API_URL=http://localhost:4000
 
 Do not commit environment files containing secrets.
 
-Example:
+5. Start the Backend
 
-```env
-DATABASE_URL=your_database_connection
-PORT=your_backend_port
-```
+From the backend directory:
 
-Use the variable names required by the actual project configuration.
-
-## 5. Start the backend
-
-From the `backend` directory:
-
-```bash
 npm run start:dev
-```
 
-## 6. Start the frontend
+The backend runs locally at:
 
-From the `frontend` directory:
+http://localhost:4000
 
-```bash
+The Tasks API is available at:
+
+http://localhost:4000/tasks
+6. Start the Frontend
+
+From the frontend directory:
+
 npm run dev
-```
 
-The frontend is configured to run locally at:
+The frontend runs locally at:
 
-```text
 http://localhost:3000
-```
-
----
-
-# 🎨 Design Implementation
+🎨 Design Implementation
 
 The application was implemented from the Figma design supplied with the assessment.
 
 The implementation focuses on:
 
-* Layout
-* Typography
-* Spacing
-* Colors
-* Borders
-* Buttons
-* Sidebar navigation
-* Task sections
-* Priority indicators
-* Member indicators
-* Due dates
-* Theme controls
-* Responsive behavior
+Layout
+Typography
+Spacing
+Colors
+Borders
+Buttons
+Sidebar navigation
+Task sections
+Priority indicators
+Member indicators
+Due dates
+Theme controls
+Responsive behavior
 
 Interactive functionality was added to turn the provided design into a working task-management application.
 
-### Intentional Adaptations
+Intentional Adaptations
 
-The original design is a visual reference, while the submitted application is interactive. Therefore, some elements were adapted to support actual application behavior, including task actions, filtering, theme persistence, and responsive layouts.
+The original design is a visual reference, while the submitted application is interactive.
 
----
+Some elements were adapted to support actual application behavior, including:
 
-# 📱 Responsive Behavior
+Task creation and management
+Task status changes
+Search and filtering
+Theme persistence
+Guest access
+Responsive layouts
+Backend API integration
+📱 Responsive Behavior
 
 The application was designed to adapt the task-management workspace to different screen sizes.
 
 The responsive implementation considers:
 
-* Navigation
-* Task lists
-* Action controls
-* Search and filtering
-* Theme controls
-* Content spacing
-* Mobile usability
+Navigation
+Task lists
+Action controls
+Search and filtering
+Theme controls
+Content spacing
+Mobile usability
 
 The mobile layout can be tested using the browser's responsive/device toolbar.
 
----
-
-# 🌙 Theme Persistence
+🌙 Theme Persistence
 
 Theme switching is implemented as part of the application.
 
 When a user changes the theme, the selected preference is persisted so that refreshing the page does not reset the user's chosen theme.
 
----
-
-# 🔐 Environment & Git
+🔐 Environment & Git
 
 Environment files and generated/dependency directories are excluded from version control.
 
-The repository `.gitignore` excludes items such as:
+The repository .gitignore excludes items such as:
 
-```text
 node_modules/
 .next/
 out/
@@ -279,139 +275,116 @@ out/
 .env.development.local
 .env.test.local
 .env.production.local
-```
 
 This prevents dependencies, build output, and sensitive environment configuration from being uploaded to GitHub.
 
----
+🧪 Validation
 
-# 🧪 Validation
+The backend uses NestJS validation pipes to help ensure that incoming request data conforms to the expected structure before being processed.
 
-The backend uses request validation to help ensure that incoming data conforms to the expected structure before being processed.
+The application also provides frontend interaction feedback where applicable.
 
-Frontend interactions also provide validation and user feedback where applicable.
+📄 Part 2 — Product Understanding
 
----
+As part of the assessment, the AbleSpace Caseload → Take Data workflow was reviewed.
 
-# 📄 Part 2 — Product Understanding
-
-As part of the assessment, the AbleSpace **Caseload → Take Data** workflow was reviewed.
-
-The submitted Part 2 document explains the workflow in my own words and includes screenshots/evidence from the observed application.
+The submitted Part 2 document explains the workflow in my own words and includes screenshots and evidence from the observed application.
 
 The workflow documented in the submission covers:
 
-1. Opening the Caseload list
-2. Selecting a student
-3. Using the student's **Take Data** action
-4. Reviewing the student and session context
-5. Selecting a goal
-6. Reviewing the goal instruction and Trial/Phase context
-7. Recording an observation through the Capture view
-8. Using Undo when a correction is required
-9. Reviewing information through Graph, Stats, and Info views
+Opening the Caseload list
+Selecting a student
+Using the student's Take Data action
+Reviewing the student and session context
+Selecting a goal
+Reviewing the goal instruction and Trial/Phase context
+Recording an observation through the Capture view
+Using Undo when a correction is required
+Reviewing information through Graph, Stats, and Info views
 
 The document intentionally avoids assuming behavior that was not directly observed during the review.
 
-### UX/UI Observations
+UX/UI Observations
 
 The review identified several strengths:
 
-* Clear separation between student/session information, goals, and the capture workspace
-* Efficient goal switching
-* A prominent primary capture action
-* Separate Capture, Graph, Stats, and Info views
+Clear separation between student/session information, goals, and the capture workspace
+Efficient goal switching
+A prominent primary capture action
+Separate Capture, Graph, Stats, and Info views
 
-It also identified areas where the experience could be improved, including the density of top-bar controls, stronger active-goal/trial context, and better handling of long goal descriptions.
+It also identified areas where the experience could be improved, including:
 
-### Recommended Improvements
+Density of top-bar controls
+Stronger active-goal and trial context
+Better handling of long goal descriptions
+Recommended Improvements
 
 The Part 2 submission recommends:
 
-* Making the active goal and Trial/Phase more prominent
-* Adding immediate capture confirmation
-* Reducing top-bar cognitive load
-* Supporting faster repeated data entry
-* Improving responsive behavior
-* Providing a clearer recovery/Undo experience
+Making the active goal and Trial/Phase more prominent
+Adding immediate capture confirmation
+Reducing top-bar cognitive load
+Supporting faster repeated data entry
+Improving responsive behavior
+Providing a clearer recovery/Undo experience
+Part 2 Submission
 
-### Part 2 Submission
+Open the Part 2 Product Understanding PDF
 
-**[Open the Part 2 Product Understanding PDF](./docs/AbleSpace_Part_2_Product_Understanding_Final_Submission.pdf)**
+📦 Additional Libraries
 
----
+The exact dependencies used by the project are available in:
 
-# 📸 Screenshots
-
-The application includes a task-management dashboard with:
-
-* Guest account information
-* Workspace navigation
-* Tasks and Projects
-* Task status groups
-* Priority
-* Members
-* Due dates
-* Search
-* Fields
-* Filters
-* Add Task
-* Theme switching
-
-Additional screenshots can be added to the repository if required.
-
----
-
-# 📦 Additional Libraries
-
-The exact additional dependencies used by the project are available in:
-
-```text
 frontend/package.json
 backend/package.json
-```
 
-This keeps the README aligned with the actual installed dependencies rather than listing libraries that are not used by the project.
+This keeps the README aligned with the actual installed dependencies.
 
----
+🚀 Deployment
+Frontend
 
-# 🚀 Deployment
+The Next.js frontend is deployed using Vercel.
 
-### Frontend
+Live Demo / Guest Login:
 
-**Live URL:** Add deployed frontend URL here
+Open AbleSpace Guest Login
 
-### Backend
+Dashboard:
 
-**API URL:** Add deployed backend URL here
+Open AbleSpace Dashboard
 
-The deployed application should remain publicly accessible for the assessment review period.
+Backend
 
----
+The NestJS backend is deployed using Render.
 
-# 📝 Assumptions
+Backend URL:
 
-* The provided Figma design was treated as the primary visual reference.
-* Interactive behavior was implemented where required to make the design functional.
-* Responsive behavior was adapted for viewport sizes not explicitly represented in the design.
-* Equivalent implementation choices may be used where the exact design asset or interaction was not available.
-* Environment-specific configuration is provided through environment variables.
-* The Part 2 product-understanding analysis is based on the interface and behavior directly observed during the review.
+Open Backend API
 
----
+Tasks API:
 
-# 👨‍💻 Author
+Open Tasks API
 
-**Adhizz**
+The deployed application is publicly accessible for the assessment review period.
+
+📝 Assumptions
+The provided Figma design was treated as the primary visual reference.
+Interactive behavior was implemented where required to make the design functional.
+Responsive behavior was adapted for viewport sizes not explicitly represented in the design.
+Equivalent implementation choices may be used where an exact design asset or interaction was not available.
+Environment-specific configuration is provided through environment variables.
+The Part 2 product-understanding analysis is based on the interface and behavior directly observed during the review.
+👨‍💻 Author
+
+Adhith KR
 
 Full Stack Developer — Fresher
 
-Built as part of the Full Stack Developer Technical Assessment.
+Built as part of the Full Stack Developer (Fresher) Technical Assessment.
 
----
-
-## 📌 Assessment Note
+📌 Assessment Note
 
 AI-assisted development tools were used during development where applicable.
 
-The submitted implementation should be understood and explainable by the developer, in accordance with the assessment requirements.
+The submitted implementation is intended to be fully understood and explainable by the developer, in accordance with the assessment requirements.
