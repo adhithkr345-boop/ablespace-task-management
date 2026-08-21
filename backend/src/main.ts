@@ -9,7 +9,7 @@ async function bootstrap() {
 app.enableCors({
   origin: [
     'http://localhost:3000',
-    'https://ablespace-task-management-oef2qgz1x-adhith-projects.vercel.app',
+    'https://ablespace-task-management-orcin.vercel.app',
   ],
 });
 
