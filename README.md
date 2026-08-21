@@ -8,8 +8,8 @@ The application was implemented based on the provided Figma design, with a focus
 
 ## 🔗 Project Links
 
-* **Live Demo:** Add your deployed URL here
-* **GitHub Repository:** [Add your GitHub repository URL here](https://github.com/adhithkr345-boop/ablespace-task-management.git)
+* **Live Demo:** [demo link](https://ablespace-task-management-orcin.vercel.app/)
+* **GitHub Repository:** [repository link](https://github.com/adhithkr345-boop/ablespace-task-management.git)
 * **Part 2 Product Understanding:** [View Part 2 Submission](./docs/AbleSpace_Part_2_Product_Understanding_Final_Submission.pdf)
 
 ---
